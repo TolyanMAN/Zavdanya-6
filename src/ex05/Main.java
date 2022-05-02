@@ -7,20 +7,28 @@ import ex04.GenerateConsoleCommand;
 import ex04.Menu;
 import ex04.ViewConsoleCommand;
 
+
 /**
  * Вычисление и отображение
+ 
  * результатов; содержит реализацию
+ 
  * статического метода main()
+ 
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 5.0
  * @see Main#main
  */
 public class Main {
     /**
      * Объект, реализующий интерфейс {@linkplain View};
+     
      * обслуживает коллекцию объектов {@linkplain ex01.Item2d};
+     
      * инициализируется с помощью Factory Method
+     
      */
     private View view = new ViewableResult().getView();
     /**
@@ -34,8 +42,12 @@ public class Main {
      */
     public void run() {
         menu.add(new ViewConsoleCommand(view));
+        
         menu.add(new GenerateConsoleCommand(view));
+        
+        
         menu.add(new ChangeConsoleCommand(view));
+        
         menu.add(new ExecuteConsoleCommand(view));
         menu.execute();
     }
