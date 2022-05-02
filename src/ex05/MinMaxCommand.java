@@ -8,15 +8,24 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Задача, используемая
+ 
  * обработчиком потока;
+ 
  * шаблон Worker Thread
+ 
+ 
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
+ 
  * @see Command
+ 
  * @see CommandQueue
+ 
  */
 public class MinMaxCommand implements Command /*, Runnable */ {
+    
     /**
      * Хранит результат обработки коллекции
      */
@@ -45,9 +54,12 @@ public class MinMaxCommand implements Command /*, Runnable */ {
 
     /**
      * Устанавливает поле {@linkplain MinMaxCommand#viewResult}
+     
      *
      * @param viewResult значение для {@linkplain MinMaxCommand#viewResult}
+     
      * @return новое значение {@linkplain MinMaxCommand#viewResult}
+     
      */
     public ViewResult setViewResult(ViewResult viewResult) {
         return this.viewResult = viewResult;
@@ -57,9 +69,13 @@ public class MinMaxCommand implements Command /*, Runnable */ {
      * Инициализирует поле {@linkplain MinMaxCommand#viewResult}
      *
      * @param viewResult объект класса {@linkplain ViewResult}
+     
      */
     public MinMaxCommand(ViewResult viewResult) {
+        
         this.viewResult = viewResult;
+        
+        
     }
 
     /**
@@ -86,7 +102,9 @@ public class MinMaxCommand implements Command /*, Runnable */ {
      * @return false - если результат найден, иначе - true
      */
     public boolean running() {
+        
         return progress < 100;
+        
     }
 
     /**
@@ -95,13 +113,20 @@ public class MinMaxCommand implements Command /*, Runnable */ {
      */
     @Override
     public void execute() {
+        
         progress = 0;
+        
         System.out.println("MinMax executed...");
+        
         int idx = 0, size = viewResult.getItems().size();
+        
         for (Item2d item : viewResult.getItems()) {
+            
             if (item.getOnesNumber() < 0) {
+                
                 if ((resultMax == -1) ||
                         (viewResult.getItems().get(resultMax).getOnesNumber() <
+                         
                                 item.getOnesNumber())) {
                     resultMax = idx;
                 }
