@@ -5,23 +5,31 @@ import java.io.*;
 /**
  * Contains the implementation of methods for calculating and displaying results.
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
  */
 
 public class Calc {
+    
     /**
      * The name of the file to use during serialization.
      */
+    
     private static final String FNAME = "ex0.Data.bin";
+    
     /**
+    
      * Stores the result of a calculation. class object {@linkplain Item2d}
+     
      */
     private Item2d result;
+    
 
     /**
      * Initializes {@linkplain Calc#result}
      */
+    
     public Calc() {
         result = new Item2d();
     }
@@ -51,20 +59,26 @@ public class Calc {
      * @return function evaluation result.
      */
     private int calc(double []arguments) {
+        
         int number = (int)((Math.sin(arguments[0]) + Math.sin(arguments[1]) + Math.sin(arguments[2]) + Math.sin(arguments[3])) / 4.0 * 1000);
+        
+        
         int count = 0;
 
         if(number < 0) {
             number *= -1;
         }
+        
 
         while (number > 0) {
             number &= (number - 1);
             count++;
         }
+        
 
         return count;
     }
+    
 
     /**
      * Calculates the value of a function and saves
@@ -73,8 +87,12 @@ public class Calc {
      * @param arguments - arguments of the computed function.
      */
     public int init(double []arguments) {
+        
         result.setArguments(arguments);
+        
+        
         return result.setOnesNumber(calc(arguments));
+        
     }
 
     /**
@@ -87,12 +105,16 @@ public class Calc {
     /**
      * Saves {@linkplain Calc#result}in a file {@linkplain Calc#FNAME}
      *
+     
      * @throws IOException
      */
     public void save() throws IOException {
+        
         ObjectOutputStream os = new ObjectOutputStream(new
+                                                       
                 FileOutputStream(FNAME));
         os.writeObject(result);
+        
         os.flush();
         os.close();
     }
@@ -103,8 +125,10 @@ public class Calc {
      * @throws Exception
      */
     public void restore() throws Exception {
+        
         ObjectInputStream is = new ObjectInputStream(new FileInputStream(FNAME));
         result = (Item2d) is.readObject();
+        
         is.close();
     }
 }
