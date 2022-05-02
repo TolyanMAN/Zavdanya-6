@@ -5,9 +5,13 @@ import static org.junit.Assert.assertTrue;
 import junit.framework.Assert;
 import java.io.IOException;
 import ex01.Item2d;
+
 /** Выполняет тестирование
+
  * разработанных классов.
- * @author Vlada
+ 
+ * @author Maksim
+ 
  * @version 2.0
  */
 
@@ -18,15 +22,21 @@ public class MainTest {
         ViewResult view = new ViewResult(5);
         view.init(5.0);
         Item2d item = new Item2d();
+        
         int ctr = 0;
+        
         item.setOnesNumberAndArguments(7, new double[]{0, 100, 200, 300});
+        
         assertTrue("expected:<" + item + "> but was:<" + view.getItems().get(ctr) + ">",
                 view.getItems().get(ctr).equals(item));
         ctr++;
         item.setOnesNumberAndArguments(5, new double[]{5, 105, 205, 305});
         assertTrue("expected:<" + item + "> but was:<" + view.getItems().get(ctr) + ">",
+                   
                 view.getItems().get(ctr).equals(item));
         ctr++;
+        
+        
         item.setOnesNumberAndArguments(6, new double[]{10, 110, 210, 310});
         assertTrue("expected:<" + item + "> but was:<" + view.getItems().get(ctr) + ">",
                 view.getItems().get(ctr).equals(item));
@@ -35,9 +45,11 @@ public class MainTest {
         assertTrue("expected:<" + item + "> but was:<" + view.getItems().get(ctr) + ">",
                 view.getItems().get(ctr).equals(item));
         ctr++;
+        
         item.setOnesNumberAndArguments(5, new double[]{20, 120, 220, 320});
         assertTrue("expected:<" + item + "> but was:<" + view.getItems().get(ctr) + ">",
                 view.getItems().get(ctr).equals(item));
+        
     }
     /** Проверка сериализации. Корректность восстановления данных. */
     @Test
@@ -53,6 +65,7 @@ public class MainTest {
             Assert.fail(e.getMessage());
         }
         // Загрузим коллекцию view2.items
+        
         try {
             view2.viewRestore();
         } catch (Exception e) {
