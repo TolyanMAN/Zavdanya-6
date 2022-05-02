@@ -10,18 +10,24 @@ import java.util.concurrent.TimeUnit;
  * обработчиком потока;
  * шаблон Worker Thread
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
  * @see Command
+ 
  * @see CommandQueue
  */
 public class MaxCommand implements Command /*, Runnable */ {
+    
     /**
      * Хранит результат обработки коллекции
+     
      */
     public int result = -1;
+    
     /**
      * Флаг готовности результата
+     
      */
     private int progress = 0;
     /**
@@ -40,12 +46,18 @@ public class MaxCommand implements Command /*, Runnable */ {
 
     /**
      * Устанавливает поле {@linkplain MaxCommand#viewResult}
+     
      *
+     
      * @param viewResult значение для {@linkplain MaxCommand#viewResult}
+     
      * @return новое значение {@linkplain MaxCommand#viewResult}
+     
      */
     public ViewResult setViewResult(ViewResult viewResult) {
+        
         return this.viewResult = viewResult;
+        
     }
 
     /**
@@ -78,11 +90,14 @@ public class MaxCommand implements Command /*, Runnable */ {
 
     /**
      * Используется обработчиком потока {@linkplain CommandQueue};
+     
      * шаблон Worker Thread
+     
      */
     @Override
     public void execute() {
         progress = 0;
+        
         System.out.println("Max executed...");
         int size = viewResult.getItems().size();
         result = 0;
@@ -92,11 +107,15 @@ public class MaxCommand implements Command /*, Runnable */ {
                 result = idx;
             }
             progress = idx * 100 / size;
+            
             if (idx % (size / 3) == 0) {
+                
                 System.out.println("Max " + progress + "%");
+                
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(700 / size);
+                
             } catch (InterruptedException e) {
                 System.err.println(e);
             }
