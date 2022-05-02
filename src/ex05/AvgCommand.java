@@ -11,18 +11,24 @@ import java.util.concurrent.TimeUnit;
  * обработчиком потока;
  * шаблон Worker Thread
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
  * @see Command
  * @see CommandQueue
  */
+
 public class AvgCommand implements Command /*, Runnable */ {
+    
     /**
      * Хранит результат обработки коллекции
+     
      */
     private double result = 0.0;
+    
     /**
      * Флаг готовности результата
+     
      */
     private int progress = 0;
     /**
@@ -43,9 +49,11 @@ public class AvgCommand implements Command /*, Runnable */ {
      * Устанавливает поле {@linkplain MaxCommand#viewResult}
      *
      * @param viewResult значение для {@linkplain MaxCommand#viewResult}
+     
      * @return новое значение {@linkplain MaxCommand#viewResult}
      */
     public ViewResult setViewResult(ViewResult viewResult) {
+        
         return this.viewResult = viewResult;
     }
 
@@ -71,6 +79,7 @@ public class AvgCommand implements Command /*, Runnable */ {
      * Проверяет готовность результата
      *
      * @return false - если результат найден, иначе - true
+     
      * @see MaxCommand#result
      */
     public boolean running() {
@@ -84,12 +93,18 @@ public class AvgCommand implements Command /*, Runnable */ {
     @Override
     public void execute() {
         progress = 0;
+        
+        
         System.out.println("Average executed...");
         result = 0.0;
+        
         int idx = 1, size = viewResult.getItems().size();
+        
         for (Item2d item : viewResult.getItems()) {
+            
             result += item.getOnesNumber();
             progress = idx * 100 / size;
+            
             if (idx++ % (size / 2) == 0) {
                 System.out.println("Average " + progress + "%");
             }
