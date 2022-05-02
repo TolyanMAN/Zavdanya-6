@@ -8,17 +8,25 @@ import java.io.IOException;
  * объектов<br>
  * Объявляет методы
  * отображения объектов
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
  */
 public interface View {
+    
     /** Отображает заголовок */
+    
     void viewHeader();
+    
     /** Отображает основную часть */
+    
     void viewBody();
+    
 
     /** Отображает окончание */
+    
     void viewFooter();
+    
 
     /** Отображает объект целиком */
     void viewShow();
