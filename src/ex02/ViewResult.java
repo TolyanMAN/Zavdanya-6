@@ -9,35 +9,41 @@ import java.util.ArrayList;
 import ex01.Item2d;
 
 /** ConcreteProduct
- * (Шаблон проектирования
+ * (ГГ ГЎГ«Г®Г­ ГЇГ°Г®ГҐГЄГІГЁГ°Г®ГўГ Г­ГЁГї
  * Factory Method)<br>
- * Вычисление функции,
- * сохранение и отображение
- * результатов
- * @author Vlada
+ * Г‚Г»Г·ГЁГ±Г«ГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ,
+ 
+ * Г±Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЁ Г®ГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГҐ
+ 
+ * Г°ГҐГ§ГіГ«ГјГІГ ГІГ®Гў
+ * @author Maksim
+ 
  * @version 1.0
  * @see View
  */
 public class ViewResult implements View {
+    
     /**
-     * Имя файла, используемое при сериализации.
+     * Г€Г¬Гї ГґГ Г©Г«Г , ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГ¬Г®ГҐ ГЇГ°ГЁ Г±ГҐГ°ГЁГ Г«ГЁГ§Г Г¶ГЁГЁ.
      */
+    
     private static final String FNAME = "ex0.Data.bin";
+    
 
-    /** Определяет количество значений для вычисления по умолчанию */
+    /** ГЋГЇГ°ГҐГ¤ГҐГ«ГїГҐГІ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г§Г­Г Г·ГҐГ­ГЁГ© Г¤Г«Гї ГўГ»Г·ГЁГ±Г«ГҐГ­ГЁГї ГЇГ® ГіГ¬Г®Г«Г·Г Г­ГЁГѕ */
     private static final int DEFAULT_NUM = 10;
 
-    /** Коллекция аргументов и результатов вычислений */
+    /** ГЉГ®Г«Г«ГҐГЄГ¶ГЁГї Г Г°ГЈГіГ¬ГҐГ­ГІГ®Гў ГЁ Г°ГҐГ§ГіГ«ГјГІГ ГІГ®Гў ГўГ»Г·ГЁГ±Г«ГҐГ­ГЁГ© */
     private ArrayList<Item2d> items = new ArrayList();
 
-    /** Вызывает {@linkplain ViewResult#ViewResult(int n) ViewResult(int n)}
-     * с параметром {@linkplain ViewResult#DEFAULT_NUM DEFAULT_NUM}
+    /** Г‚Г»Г§Г»ГўГ ГҐГІ {@linkplain ViewResult#ViewResult(int n) ViewResult(int n)}
+     * Г± ГЇГ Г°Г Г¬ГҐГІГ°Г®Г¬ {@linkplain ViewResult#DEFAULT_NUM DEFAULT_NUM}
      */
     public ViewResult() {
         this(DEFAULT_NUM);
     }
-    /** Инициализирует коллекцию {@linkplain ViewResult#items}
-     * @param n начальное количество элементов
+    /** Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§ГЁГ°ГіГҐГІ ГЄГ®Г«Г«ГҐГЄГ¶ГЁГѕ {@linkplain ViewResult#items}
+     * @param n Г­Г Г·Г Г«ГјГ­Г®ГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў
      */
     public ViewResult(int n) {
         for(int ctr = 0; ctr < n; ctr++) {
@@ -45,39 +51,44 @@ public class ViewResult implements View {
         }
     }
 
-    /** Получить значение {@linkplain ViewResult#items}
-     * @return текущее значение ссылки на объект {@linkplain ArrayList}
+    /** ГЏГ®Г«ГіГ·ГЁГІГј Г§Г­Г Г·ГҐГ­ГЁГҐ {@linkplain ViewResult#items}
+     * @return ГІГҐГЄГіГ№ГҐГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ Г±Г±Г»Г«ГЄГЁ Г­Г  Г®ГЎГєГҐГЄГІ {@linkplain ArrayList}
      */
     public ArrayList<Item2d> getItems() {
         return items;
     }
 
     /**
-     * Вычисляет значение функции.
+     * Г‚Г»Г·ГЁГ±Г«ГїГҐГІ Г§Г­Г Г·ГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ.
      *
-     * @param arguments - аргументы вычисляемой функции.
-     * @return результат вычисления функции.
+     * @param arguments - Г Г°ГЈГіГ¬ГҐГ­ГІГ» ГўГ»Г·ГЁГ±Г«ГїГҐГ¬Г®Г© ГґГіГ­ГЄГ¶ГЁГЁ.
+     * @return Г°ГҐГ§ГіГ«ГјГІГ ГІ ГўГ»Г·ГЁГ±Г«ГҐГ­ГЁГї ГґГіГ­ГЄГ¶ГЁГЁ.
      */
     private byte calc(double []arguments) {
         int number = (int)((Math.sin(arguments[0]) + Math.sin(arguments[1]) + Math.sin(arguments[2]) + Math.sin(arguments[3])) / 4.0 * 1000);
+        
         byte count = 0;
 
+        
         if(number < 0) {
             number *= -1;
         }
 
         while (number > 0) {
             number &= (number - 1);
+            
             count++;
         }
 
         return count;
     }
 
-    /** Вычисляет значение функции и сохраняет
-     * результат в коллекции {@linkplain ViewResult#items}
+    
+    /** Г‚Г»Г·ГЁГ±Г«ГїГҐГІ Г§Г­Г Г·ГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ ГЁ Г±Г®ГµГ°Г Г­ГїГҐГІ
+     * Г°ГҐГ§ГіГ«ГјГІГ ГІ Гў ГЄГ®Г«Г«ГҐГЄГ¶ГЁГЁ {@linkplain ViewResult#items}
      *
-     * @param argumentsStep - шаг приращения аргумента
+     
+     * @param argumentsStep - ГёГ ГЈ ГЇГ°ГЁГ°Г Г№ГҐГ­ГЁГї Г Г°ГЈГіГ¬ГҐГ­ГІГ 
      */
     public void init(double argumentsStep) {
         double []arguments = new double[]{ 10, 100, 50, 500 };
@@ -91,7 +102,7 @@ public class ViewResult implements View {
         }
     }
 
-    /** Вызывает <b>init(double argumentsStep)</b> со случайным значением аргумента<br>
+    /** Г‚Г»Г§Г»ГўГ ГҐГІ <b>init(double argumentsStep)</b> Г±Г® Г±Г«ГіГ·Г Г©Г­Г»Г¬ Г§Г­Г Г·ГҐГ­ГЁГҐГ¬ Г Г°ГЈГіГ¬ГҐГ­ГІГ <br>
      * {@inheritDoc}
      */
     @Override
@@ -99,7 +110,7 @@ public class ViewResult implements View {
         init(Math.random() * 180.0);
     }
 
-    /** Реализация метода {@linkplain View#viewSave()}<br>
+    /** ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г¬ГҐГІГ®Г¤Г  {@linkplain View#viewSave()}<br>
      * {@inheritDoc}
      */
     @Override
@@ -110,7 +121,7 @@ public class ViewResult implements View {
         os.close();
     }
 
-    /** Реализация метода {@linkplain View#viewRestore()}<br>
+    /** ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г¬ГҐГІГ®Г¤Г  {@linkplain View#viewRestore()}<br>
      * {@inheritDoc}
      */
     @SuppressWarnings("unchecked")
@@ -121,7 +132,7 @@ public class ViewResult implements View {
         is.close();
     }
 
-    /** Реализация метода {@linkplain View#viewHeader()}<br>
+    /** ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г¬ГҐГІГ®Г¤Г  {@linkplain View#viewHeader()}<br>
      * {@inheritDoc}
      */
     @Override
@@ -129,17 +140,19 @@ public class ViewResult implements View {
         System.out.println("Results:");
     }
 
-    /** Реализация метода {@linkplain View#viewBody()}<br>
+    /** ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г¬ГҐГІГ®Г¤Г  {@linkplain View#viewBody()}<br>
      * {@inheritDoc}
      */
     @Override
     public void viewBody() {
         for(Item2d item : items) {
             System.out.println(item);
+            
         }
     }
 
-    /** Реализация метода {@linkplain View#viewFooter()}<br>
+    /** ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г¬ГҐГІГ®Г¤Г  {@linkplain View#viewFooter()}<br>
+    
      * {@inheritDoc}
      */
     @Override
@@ -147,11 +160,13 @@ public class ViewResult implements View {
         System.out.println("End.");
     }
 
-    /** Реализация метода {@linkplain View#viewShow()}<br>
+    /** ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї Г¬ГҐГІГ®Г¤Г  {@linkplain View#viewShow()}<br>
+    
      * {@inheritDoc}
      */
     @Override
     public void viewShow() {
+        
         viewHeader();
         viewBody();
         viewFooter();
