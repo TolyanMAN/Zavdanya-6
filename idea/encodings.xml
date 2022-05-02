@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/ex01/Calc.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/ex01/Item2d.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/ex01/Main.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/ex02/Data.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/ex02/Main.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/ex02/ViewResult.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/test/ex01/MainTest.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
