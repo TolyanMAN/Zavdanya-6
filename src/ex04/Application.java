@@ -2,22 +2,32 @@ package ex04;
 import ex02.View;
 import ex03.ViewableTable;
 /** Формирует и отображает
+
  * меню; реализует шаблон
+ 
  * Singleton
- * @author xone
+ * @author Maksim
+ 
  * @version 1.0
  */
 public class Application {
     /** Ссылка на экземпляр класса Application; шаблон Singleton
+    
      * @see Application
+     
      */
     private static Application instance = new Application();
+    
     /** Закрытый конструктор; шаблон Singleton
+    
      * @see Application
      */
     private Application() {}
+    
     /** Возвращает ссылку на экземпляр класса Application;
+    
      * шаблон Singleton
+     
      * @see Application
      */
     public static Application getInstance() {
@@ -37,9 +47,12 @@ public class Application {
      */
     public void run() {
         menu.add(new ViewConsoleCommand(view));
+        
         menu.add(new GenerateConsoleCommand(view));
+        
         menu.add(new ChangeConsoleCommand(view));
         menu.add(new SaveConsoleCommand(view));
+        
         menu.add(new RestoreConsoleCommand(view));
         menu.execute();
     }
