@@ -4,10 +4,14 @@ import java.util.Formatter;
 import ex01.Item2d;
 import ex02.ViewResult;
 /** ConcreteProduct
+
  * (шаблон проектирования
+ 
  * Factory Method)<br>
+ 
  * Вывод в виде таблицы
- * @author Vlada
+ 
+ * @author Maksim
  * @version 1.0
  * @see ViewResult
  */
@@ -15,27 +19,36 @@ import ex02.ViewResult;
 public class ViewTable extends ViewResult {
     /** Определяет ширину таблицы по умолчанию */
     private static final int DEFAULT_WIDTH = 40;
+    
     /** Текущая ширина таблицы */
     private int width;
 
+    
     /** Устанавливает {@linkplain ViewTable#width width}
+    
      * значением {@linkplain ViewTable#DEFAULT_WIDTH DEFAULT_WIDTH}<br>
      * Вызывается конструктор суперкласса {@linkplain ViewResult#ViewResult() ViewResult()}
+     
      */
     public ViewTable() {
         width = DEFAULT_WIDTH;
     }
 
     /** Устанавливает {@linkplain ViewTable#width} значением <b>width</b><br>
+    
      * Вызывается конструктор суперкласса {@linkplain ViewResult#ViewResult() ViewResult()}
+     
      * @param width определяет ширину таблицы
+     
      */
     public ViewTable(int width) {
+        
         this.width = width;
     }
 
     /** Устанавливает {@linkplain ViewTable#width} значением <b>width</b><br>
      * Вызывается конструктор суперкласса {@linkplain ViewResult#ViewResult(int n) ViewResult(int
+     
     n)}
      * @param width определяет ширину таблицы
      * @param n количество элементов коллекции; передаётся суперконструктору
@@ -60,6 +73,7 @@ public class ViewTable extends ViewResult {
         return width;
     }
 
+    
     /** Выводит вертикальный разделитель шириной {@linkplain ViewTable#width} символов */
     private void outLine() {
         for(int i = width; i > 0; i--) {
@@ -73,6 +87,7 @@ public class ViewTable extends ViewResult {
         System.out.println();
     }
 
+    
     /** Выводит заголовок таблицы шириной {@linkplain ViewTable#width} символов */
     private void outHeader() {
         Formatter fmt = new Formatter();
