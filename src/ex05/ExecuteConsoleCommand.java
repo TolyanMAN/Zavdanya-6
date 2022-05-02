@@ -6,22 +6,31 @@ package ex05;
  **/
 
 import ex02.View;
+
 import ex02.ViewResult;
+
 import ex04.ConsoleCommand;
 
+
 import java.util.concurrent.TimeUnit;
+
 
 /**
  * Консольная команда
  * Execute all threads;
+ 
  * шаблон Command
+ 
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
  */
 public class ExecuteConsoleCommand implements ConsoleCommand {
+    
     /**
      * Объект, реализующий интерфейс {@linkplain View};
+     
      * обслуживает коллекцию объектов {@linkplain ex01.Item2d}
      */
     private View view;
@@ -49,13 +58,16 @@ public class ExecuteConsoleCommand implements ConsoleCommand {
      * Инициализирует поле {@linkplain ExecuteConsoleCommand#view}
      *
      * @param view объект, реализующий {@linkplain View}
+     
      */
     public ExecuteConsoleCommand(View view) {
+        
         this.view = view;
     }
 
     @Override
     public char getKey() {
+        
         return 'e';
     }
 
