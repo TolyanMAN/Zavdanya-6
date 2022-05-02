@@ -2,10 +2,11 @@ package ex05;
 
 import ex02.ViewResult;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
+         import org.junit.BeforeClass;
+        
 import org.junit.Test;
 
-import java.util.concurrent.TimeUnit;
+    import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
@@ -13,7 +14,8 @@ import static org.junit.Assert.*;
  * Тестирование
  * разработанных классов
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 5.0
  * @see CommandQueue
  * @see MaxCommand
@@ -44,13 +46,21 @@ public class MainTest {
      * Выполняется последним
      */
     @AfterClass
+    
     public static void tearDownAfterClass() {
+        
         assertEquals(max1.getResult(), max2.getResult());
+        
         assertEquals(avg1.getResult(), avg2.getResult(), .1e-10);
+        
         assertEquals(min1.getResultMax(), min2.getResultMax());
+        
         assertEquals(min1.getResultMin(), min2.getResultMin());
+        
+        
     }
 
+    
     /**
      * Проверка основной функциональности класса {@linkplain MaxCommand}
      */
@@ -117,18 +127,25 @@ public class MainTest {
 
     /**
      * Проверка основной функциональности класса
+     
      * {@linkplain CommandQueue} с задачей {@linkplain MinMaxCommand}
+     
      */
     @Test
     public void testMinQueue() {
         queue.put(min2);
+        
         try {
             while (min2.running()) {
                 TimeUnit.MILLISECONDS.sleep(100);
+                
             }
+            
             queue.shutdown();
+            
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
+            
             fail(e.toString());
         }
     }
