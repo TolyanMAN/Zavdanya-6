@@ -6,14 +6,21 @@ import java.util.Vector;
 
 /**
  * Создает обработчик
+ 
  * потока, выполняющего
+ 
  * объекты с интерфейсом
+ 
  * Command; шаблон
+ 
  * Worker Thread
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
+ 
  * @see Command
+ 
  */
 public class CommandQueue implements Queue {
     /**
@@ -38,9 +45,14 @@ public class CommandQueue implements Queue {
 
     /**
      * Инициализация {@linkplain CommandQueue#tasks}
+     
      * {@linkplain CommandQueue#waiting}
+     
      * {@linkplain CommandQueue#waiting};
+     
+     
      * создает поток для класса {@linkplain CommandQueue.Worker}
+     
      */
     public CommandQueue() {
         tasks = new Vector<Command>();
@@ -78,21 +90,28 @@ public class CommandQueue implements Queue {
      * задач; шаблон
      * Worker Thread
      *
-     * @author xone
+     * @author Maksim
+     
      * @version 1.0
      * @see Runnable
      */
     private class Worker implements Runnable {
+        
         /**
          * Извлекает из очереди
          * готовые к выполнению
          * задачи; шаблон
          * Worker Thread
+         
          */
         public void run() {
+            
             while (!shutdown) {
+                
                 Command r = take();
+                
                 r.execute();
+                
             }
         }
     }
