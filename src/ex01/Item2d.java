@@ -6,40 +6,53 @@ import java.util.Arrays;
 /**
  * Stores the initial data and the result of calculations.
  *
- * @author Vlada
+ * @author Maksim
  * @version 1.0
  */
 
 public class Item2d implements Serializable {
+    
     /**
      * The number of units in the number.
+     
      */
     private int onesNumber;
+    
 
     /**
      * Function arguments.
+     
      */
     private double []arguments;
+    
 
     /**
+    
      * Automatically generated constant
      */
     private static final long serialVersionUID = 1L;
+    
 
     /**
      * Initializes fields {@linkplain Item2d#onesNumber}, {@linkplain Item2d#arguments}
+     
      */
     public Item2d() {
         onesNumber = 0;
+        
+        
         arguments = new double[4];
     }
 
     /**
      * Sets field values: arguments
      * and the result of the function evaluation.
+     
      *
      * @param onesNumber - value to initialize the field {@linkplain Item2d#onesNumber}
+     
      * @param arguments - value to initialize the field {@linkplain Item2d#arguments}
+     
      */
     public Item2d(int onesNumber, double []arguments) {
         this.onesNumber = onesNumber;
@@ -69,24 +82,29 @@ public class Item2d implements Serializable {
      * Setting a field value {@linkplain Item2d#arguments}
      *
      * @param arguments - value for {@linkplain Item2d#arguments}
+     
      * @return value {@linkplain Item2d#arguments}
      */
     public double []setArguments(double []arguments) {
+        
         return this.arguments = arguments;
     }
 
     /**
      * Getting the value of a field{@linkplain Item2d#arguments}
+     
      *
      * @return value {@linkplain Item2d#arguments}
      */
+    
     public double []getArguments() {
         return arguments;
     }
 
     /**
-     * Setting values  {@linkplain Item2d#onesNumber} è {@linkplain Item2d#arguments}
+     * Setting values  {@linkplain Item2d#onesNumber} Ã¨ {@linkplain Item2d#arguments}
      *
+     
      * @param onesNumber - value for {@linkplain Item2d#onesNumber}
      * @param arguments - value for {@linkplain Item2d#arguments}
      * @return this
@@ -114,10 +132,14 @@ public class Item2d implements Serializable {
             return true;
         if (obj == null)
             return false;
+        
         if (getClass() != obj.getClass())
+            
             return false;
         Item2d other = (Item2d) obj;
+        
         if(onesNumber != other.onesNumber) {
+            
             return false;
         }
 
