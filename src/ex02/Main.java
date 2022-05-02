@@ -5,35 +5,42 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Вычисление и отображение результатов.
- * Содержит реализацию статического метода main().
+ * Г‚Г»Г·ГЁГ±Г«ГҐГ­ГЁГҐ ГЁ Г®ГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Г°ГҐГ§ГіГ«ГјГІГ ГІГ®Гў.
+ * Г‘Г®Г¤ГҐГ°Г¦ГЁГІ Г°ГҐГ Г«ГЁГ§Г Г¶ГЁГѕ Г±ГІГ ГІГЁГ·ГҐГ±ГЄГ®ГЈГ® Г¬ГҐГІГ®Г¤Г  main().
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
  * @see Main#main
  */
 @SuppressWarnings("SpellCheckingInspection")
+
 public class Main {
-    /** Объект, реализующий интерфейс {@linkplain View};
-     * обслуживает коллекцию объектов {@linkplain ex01.Item2d}
+    /** ГЋГЎГєГҐГЄГІ, Г°ГҐГ Г«ГЁГ§ГіГѕГ№ГЁГ© ГЁГ­ГІГҐГ°ГґГҐГ©Г± {@linkplain View};
+    
+     * Г®ГЎГ±Г«ГіГ¦ГЁГўГ ГҐГІ ГЄГ®Г«Г«ГҐГЄГ¶ГЁГѕ Г®ГЎГєГҐГЄГІГ®Гў {@linkplain ex01.Item2d}
+     
      */
     public View view;
 
-    /** Инициализирует поле {@linkplain Main#view view}. */
+    /** Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§ГЁГ°ГіГҐГІ ГЇГ®Г«ГҐ {@linkplain Main#view view}. */
     public Main(View view) {
         this.view = view;
     }
 
     /**
-     * Отображает меню.
+     * ГЋГІГ®ГЎГ°Г Г¦Г ГҐГІ Г¬ГҐГ­Гѕ.
      */
     public void menu() {
         String s = null;
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        
         do {
             do {
+                
                 System.out.println("Enter command...");
                 System.out.print("'q'uit, 'v'iew, 'g'enerate, 's'ave, 'r'estore: ");
+                
                 try {
                     s = in.readLine();
                 } catch (IOException e) {
@@ -55,12 +62,17 @@ public class Main {
                 case 's' -> {
                     System.out.println("Save current.");
                     try {
+                        
                         view.viewSave();
+                        
                     } catch (IOException e) {
+                        
                         System.out.println("Serialization error: " + e);
+                        
                     }
                     view.viewShow();
                 }
+                    
                 case 'r' -> {
                     System.out.println("Restore last saved.");
                     try {
@@ -74,16 +86,22 @@ public class Main {
             }
         } while (s.charAt(0) != 'q');
     }
+    
 
     /**
-     * Выполняется при запуске программы.
-     * Вычисляется значение функции для различных аргументов.
-     * Результаты вычислений выводятся на экран.
+     * Г‚Г»ГЇГ®Г«Г­ГїГҐГІГ±Гї ГЇГ°ГЁ Г§Г ГЇГіГ±ГЄГҐ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г».
+     
+     * Г‚Г»Г·ГЁГ±Г«ГїГҐГІГ±Гї Г§Г­Г Г·ГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї Г°Г Г§Г«ГЁГ·Г­Г»Гµ Г Г°ГЈГіГ¬ГҐГ­ГІГ®Гў.
+     
+     * ГђГҐГ§ГіГ«ГјГІГ ГІГ» ГўГ»Г·ГЁГ±Г«ГҐГ­ГЁГ© ГўГ»ГўГ®Г¤ГїГІГ±Гї Г­Г  ГЅГЄГ°Г Г­.
+     
      *
-     * @param args - параметры запуска программы.
+     * @param args - ГЇГ Г°Г Г¬ГҐГІГ°Г» Г§Г ГЇГіГ±ГЄГ  ГЇГ°Г®ГЈГ°Г Г¬Г¬Г».
      */
     public static void main(String[] args) {
+        
         Main main = new Main(new ViewableResult().getView());
+        
         main.menu();
     }
 }
